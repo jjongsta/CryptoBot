@@ -1,6 +1,8 @@
 import cbpro
 import pandas as pd
 import numpy as np
+import schedule
+import time
 from datetime import datetime, timedelta
 import yaml
 
@@ -166,7 +168,7 @@ def main():
             auth_client.place_market_order(product_id=f'{coin}-USDC',
                                            side='sell',
                                            funds=size)
-            # cancell stoploss order
+            # cancel stoploss order
             auth_client.cancel_all(product_id=f'{coin}-USDC')
         else:
             print('hold')
